@@ -67,12 +67,6 @@ The dataset should follow the following folder structure -
             >LDR_exposure_+2
               >LDR_001.jpg
               >LDR_002.jpg
-            >LDR_exposure_-2
-              >LDR_001.jpg
-              >LDR_002.jpg
-            >LDR_exposure_0
-              >LDR_001.jpg
-              >LDR_002.jpg
 
         > HDR
 
@@ -118,9 +112,9 @@ Pre-trained models can be downloaded from the below-mentioned links.
 
 These models have been trained with the default options, on 256x256 size images for 200 epochs, in accordance with the paper.
 
-- [3-Iterations model](https://drive.google.com/drive/folders/1aJkGCpSN2T96vfQoh2OFwIMZVVzN3C6F)
-- [2-Iterations model](https://drive.google.com/drive/folders/1j6QkshoLHfovfva9YbJuVUjFk14wT_OC)
-- [1-Iterations model](https://drive.google.com/drive/folders/1chMTUfzu6946K4KfitTGXTPOvlWSy7bw) 
+- [3-Iterations model](https://drive.google.com/drive/folders/1efgCYCIhVxQcl7CTjCc-1avbrlyefE-h)
+- [2-Iterations model](https://drive.google.com/drive/folders/174shlnTkE4DSH1Li_bwyvxtgwjiokNy5)
+- [1-Iterations model](https://drive.google.com/drive/folders/1x-i_ChewEhGMqaCxg0Tof_mVpCewSlet) 
 
 Here is a graph plotting the performance vs iteration count. 
 
