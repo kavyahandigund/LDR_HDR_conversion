@@ -1,12 +1,18 @@
-FHDR: HDR Image Reconstruction from a Single LDR Image using Feedback Network 
+FHDR: Generating HDR image From differnt multiexposure LDR image Using FHDR model
 ========================================
 [![arXiv](https://img.shields.io/badge/cs.cv-arXiv%3A1912.11463-42ba94.svg)](https://arxiv.org/abs/1912.11463v1)
 
 This repository contains the code for our FHDR work accepted at [GlobalSIP](http://2019.ieeeglobalsip.org).
 
-<p align="center">
-<img src="https://user-images.githubusercontent.com/24846546/166098107-5d9d394e-6e32-4963-9417-7c1d152d717d.png" width="70%">
+<p >
+    <p>Multi-Exposure Image Combined into
+ Single LDR Using Simple Averaging.
 </p>
+<img src="https://github.com/kavyahandigund/LDR_HDR_conversion_multi_exposure/blob/main/mp2Multi1.JPG" width="70%" left="-20%">
+<img src="https://github.com/kavyahandigund/LDR_HDR_conversion_multi_exposure/blob/main/mp2multi2.JPG" width="70%" left="-20%">
+</p>
+</p>
+
     
 Table of contents:
 -----------
@@ -17,8 +23,7 @@ Table of contents:
 - [Training](#training)
 - [Pretrained models](#pretrained-models)
 - [Evaluation](#evaluation)
-- [Citation](#citation)
-- [Acknowledgement](#acknowledgement)
+
 
 Abstract
 ------------
@@ -32,8 +37,7 @@ Setup
 ### Pre-requisites
 
 - Python3
-- [PyTorch](https://pytorch.org/)
-- GPU, CUDA, cuDNN
+- GPU, CUDA
 - [OpenCV](https://opencv.org)
 - [PIL](https://pypi.org/project/Pillow/)
 - [Numpy](https://numpy.org/)
@@ -60,15 +64,20 @@ The dataset should follow the following folder structure -
 
         > LDR
 
-            > ldr_image_1.jpg/png
-            > ldr_image_2.jpg/png
-            .
-            .
+            >LDR_exposure_+2
+              >LDR_001.jpg
+              >LDR_002.jpg
+            >LDR_exposure_-2
+              >LDR_001.jpg
+              >LDR_002.jpg
+            >LDR_exposure_0
+              >LDR_001.jpg
+              >LDR_002.jpg
 
         > HDR
 
-            > hdr_image_1.hdr/exr
-            > hdr_image_2.hdr/exr
+            > hdr_image_1.hdr
+            > hdr_image_2.hdr
             .
             .
 
@@ -77,8 +86,7 @@ The dataset should follow the following folder structure -
 ```
 
 - Sample test datasets can be downloaded here - 
-    - [512x512 size images](https://drive.google.com/open?id=1tv8kdeoT12AJL2iMnQkNUfgY2RjirNp9)
-    - [256x256 size images](https://drive.google.com/open?id=1KQCLpXwRshmrUi10oG1aPNvOCExeCGv5)
+    - [256x256 size images]
 
 - For evaluating on this dataset, download and unzip the folder, replace it with the `test` directory in the `dataset` folder, and refer to [Pretrained models](#pretrained-models) and [Evaluation](#evaluation).
 
@@ -110,49 +118,21 @@ Pre-trained models can be downloaded from the below-mentioned links.
 
 These models have been trained with the default options, on 256x256 size images for 200 epochs, in accordance with the paper.
 
-- [Feed-forward (1-Iteration) model](https://drive.google.com/file/d/1iTSU-tsencVgefH8oNorf9JExGKylaXo/view?usp=sharing)
-- [2-Iterations model](https://drive.google.com/open?id=13vTGH-GVIWVL79X8NJra0yiguoO1Ox4V)
-- [3-Iterations model]() [Coming soon]
-- [4-Iterations model]() [Coming soon]
+- [3-Iterations model](https://drive.google.com/drive/folders/1aJkGCpSN2T96vfQoh2OFwIMZVVzN3C6F)
+- [2-Iterations model](https://drive.google.com/drive/folders/1j6QkshoLHfovfva9YbJuVUjFk14wT_OC)
+- [1-Iterations model](https://drive.google.com/drive/folders/1chMTUfzu6946K4KfitTGXTPOvlWSy7bw) 
 
 Here is a graph plotting the performance vs iteration count. 
 
-<img src="https://user-images.githubusercontent.com/24846546/71311250-ed28ab00-2415-11ea-9842-f84b5999161e.png" width="40%">
+<img src="https://github.com/kavyahandigund/LDR_HDR_conversion_multi_exposure/blob/main/mp2multi3.JPG" width="40%">
 
 Evaluation
 ----------
 
 The performance of the network can be evaluated using the **`test.py`** file - 
+SSIM and PSNR are used as a evaluation matrics.
 
-```sh
-python3 test.py --ckpt_path /path/to/pth/checkpoint
-```
 
-- Test results (LDR input, HDR prediction and HDR ground truth) are stored in the **`test_results`** directory.
-- HDR images can be viewed using [OpenHDRViewer](https://viewer.openhdr.org).
-- If checkpoint path is not specified, it defaults to `checkpoints/latest.ckpt` for evaluating the model.
-- PSNR and SSIM scores can be logged for quantitative evaluation by -
-
-```sh
-python3 test.py --log_scores
-```
-
-Citation
-----------
-If you use this code for your research, please cite the following [paper](http://arxiv.org/abs/1912.11463). 
-
-```
-@INPROCEEDINGS{8969167,
-    author={Z. {Khan} and M. {Khanna} and S. {Raman}},
-    booktitle={2019 IEEE Global Conference on Signal and Information Processing (GlobalSIP)},
-    title={FHDR: HDR Image Reconstruction from a Single LDR Image using Feedback Network},
-    year={2019},
-    pages={1-5},
-    doi={10.1109/GlobalSIP45357.2019.8969167}
-}
-```
-Acknowledgement
-------
 
 This research was supported by the Science and Engineering Research Board (SERB) Core Research Grant.
 
