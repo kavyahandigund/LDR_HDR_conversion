@@ -1,4 +1,4 @@
-FHDR: Generating HDR image From differnt multiexposure LDR image Using FHDR model
+FHDR: Generating HDR image From differnt single exposure LDR image Using FHDR model
 ========================================
 [![arXiv](https://img.shields.io/badge/cs.cv-arXiv%3A1912.11463-42ba94.svg)](https://arxiv.org/abs/1912.11463v1)
 
