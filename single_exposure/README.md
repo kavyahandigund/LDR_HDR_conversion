@@ -128,5 +128,4 @@ SSIM and PSNR are used as a evaluation matrics.
 
 
 
-This research was supported by the Science and Engineering Research Board (SERB) Core Research Grant.
 
