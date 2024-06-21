@@ -118,7 +118,7 @@ These models have been trained with the default options, on 256x256 size images 
 
 Here is a graph plotting the performance vs iteration count. 
 
-<img src="https://github.com/kavyahandigund/LDR_HDR_conversion_multi_exposure/blob/main/mp2multi3.JPG" width="40%">
+<img src="https://github.com/kavyahandigund/LDR_HDR_conversion_single_exposure/blob/main/single_exposure/sing2.JPG" width="40%">
 
 Evaluation
 ----------
